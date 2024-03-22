@@ -16,3 +16,14 @@ class PlanRepository:
     def getPlan(cls, userId):
         plan = sql.session.query(Plan).join(User, User.plan_id == Plan.plan_id).filter(User.user_id == userId).first()
         return plan
+
+    @classmethod
+    def changePlan(cls, user, plan_id):
+        user.plan_id = plan_id
+        sql.session.commit()
+        return user
+
+    @classmethod
+    def getPlanById(cls, param):
+        plan = sql.session.query(Plan).filter(Plan.plan_id == param).first()
+        return plan

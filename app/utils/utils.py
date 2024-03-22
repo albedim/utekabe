@@ -1,6 +1,7 @@
 import base64
 import hashlib
 import json
+import os
 from datetime import datetime
 import jwt
 import requests
@@ -166,6 +167,12 @@ def saveFile(base64Data, filePath):
         decoded_data = base64.b64decode(base64Data)
         with open(filePath, 'wb') as file:
             file.write(decoded_data)
+    except Exception as exc:
+        ...
+
+def removeFile(filePath):
+    try:
+        os.remove(filePath)
     except Exception as exc:
         ...
 

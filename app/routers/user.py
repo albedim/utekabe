@@ -45,6 +45,13 @@ def getUser(userId: str):
 def getUserByLibraryName(libraryName: str):
     return UserService.getUserByLibraryName(request.headers, libraryName)
 
+
+@userRouter.put("/plans")
+@jwt_required()
+def changePlan():
+    return UserService.changePlan(get_jwt_identity(), request.json)
+
+
 @userRouter.get("/exists/<libraryName>")
 def exists(libraryName: str):
     return UserService.exists(libraryName)

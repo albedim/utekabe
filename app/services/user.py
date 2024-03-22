@@ -344,3 +344,21 @@ class UserService:
         except Exception as exc:
             return createErrorResponse(GException(exc))
 
+    @classmethod
+    def changePlan(cls, auth, request):
+
+        user = UserRepository.getUserById(auth['user_id'])
+        if user is None:
+            raise UserNotFoundException()
+
+        plan = PlanRepository.getPlanById(request['plan_id'])
+        if plan is None:
+            raise UnAuthorizedException()
+
+        userPlan = PlanRepository.getPlan(user.user_id)
+        if not plan.premium or userPlan.plan_id >= plan.plan_id:
+            raise UnAuthorizedException()
+
+        PlanRepository.changePlan(user, plan.plan_id)
+        return createSuccessResponse("created")
+
