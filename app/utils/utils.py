@@ -176,6 +176,6 @@ def removeFile(filePath):
     except Exception as exc:
         ...
 
-
+DB_CREDENTIALS = getConnectionParameters('local')
 BASE_FE_URL = getVariables('local')['BASE_FE_URL']
 BASE_URL = getVariables('local')['BASE_URL']

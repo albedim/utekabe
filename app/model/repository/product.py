@@ -5,7 +5,7 @@ class ProductRepository:
 
     @classmethod
     def getProducts(cls, userId):
-        products = sql.session.query(Product).filter(Product.user_id == userId).all()
+        products = sql.session.query(Product).filter(Product.user_id == userId).filter(Product.hidden == False).all()
         return products
 
     @classmethod
@@ -19,3 +19,23 @@ class ProductRepository:
     def getProduct(cls, productId):
         product = sql.session.query(Product).filter(Product.product_id == productId).first()
         return product
+
+    @classmethod
+    def removeProduct(cls, productId):
+        sql.session.query(Product).filter(Product.product_id == productId).delete()
+        sql.session.commit()
+
+    @classmethod
+    def hideProduct(cls, product):
+        product.hidden = True
+        sql.session.commit()
+
+    @classmethod
+    def getHiddenProducts(cls, userId):
+        products = sql.session.query(Product).filter(Product.user_id == userId).filter(Product.hidden == True).all()
+        return products
+
+    @classmethod
+    def unhideProduct(cls, product):
+        product.hidden = False
+        sql.session.commit()

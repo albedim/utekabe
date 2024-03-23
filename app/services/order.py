@@ -16,7 +16,6 @@ class OrderService:
         authUser = None
         if headers.get("Authorization") is not None:
             token = headers.get("Authorization").split(" ")[1]
-            print(headers.get("Authorization"))
             try:
                 auth = decode_token(token)['sub']
                 authUser = UserRepository.getUserById(auth['user_id'])

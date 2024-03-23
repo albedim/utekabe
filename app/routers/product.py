@@ -13,10 +13,24 @@ productRouter: Blueprint = Blueprint('ProductController', __name__, url_prefix="
 def create():
     return ProductService.create(get_jwt_identity(), request.json)
 
+@productRouter.get("/user/<userId>/hidden")
+def getHiddenProducts(userId: str):
+    return ProductService.getHiddenProducts(userId)
+
+
 @productRouter.get("/user/<userId>")
 def getProducts(userId: str):
     return ProductService.getProducts(userId)
 
+@productRouter.post("/unhide")
+@jwt_required()
+def unhideProduct():
+    return ProductService.unhideProduct(get_jwt_identity(), request.json)
+
+@productRouter.post("/hide")
+@jwt_required()
+def hideProduct():
+    return ProductService.hideProduct(get_jwt_identity(), request.json)
 
 @productRouter.get("/<productId>/file")
 def getProduct(productId):

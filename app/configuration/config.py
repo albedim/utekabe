@@ -6,15 +6,13 @@ from app.utils.errors.GException import GException
 from app.utils.errors.MethodNotAllowedException import MethodNotAllowedException
 from app.utils.errors.NotFoundException import NotFoundException
 
-from app.utils.utils import getConnectionParameters
+from app.utils.utils import getConnectionParameters, DB_CREDENTIALS
 from app.utils.utils import createErrorResponse
-
-params = getConnectionParameters("local")
 
 # modules init
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + params['user'] + ':' + params['password'] + '@' + params['host'] + '/' + params['db']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + DB_CREDENTIALS['user'] + ':' + DB_CREDENTIALS['password'] + '@' + DB_CREDENTIALS['host'] + '/' + DB_CREDENTIALS['db']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_TOKEN_LOCATION'] = ['headers', 'query_string']
 app.config["JWT_SECRET_KEY"] = "super-secret"

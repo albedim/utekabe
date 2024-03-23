@@ -44,6 +44,19 @@ class ProductService:
             return createErrorResponse(GException(exc))
 
     @classmethod
+    def getHiddenProducts(cls, userId):
+        try:
+            user = UserRepository.getUserById(userId)
+            if user is None:
+                raise UserNotFoundException()
+            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getHiddenProducts(userId)]
+            return createSuccessResponse(products)
+        except UserNotFoundException as exc:
+            return createErrorResponse(UserNotFoundException)
+        except Exception as exc:
+            return createErrorResponse(GException(exc))
+
+    @classmethod
     def getProduct(cls, tk, productId):
         try:
             order = OrderRepository.getOrderByTk(tk)
@@ -56,4 +69,47 @@ class ProductService:
         except UnAuthorizedException as exc:
             return createErrorResponse(UnAuthorizedException(exc))
         except Exception as exc:
+            print(exc)
+            return createErrorResponse(GException(exc))
+
+    @classmethod
+    def unhideProduct(cls, auth, request):
+        try:
+            user = UserRepository.getUserById(auth['user_id'])
+
+            if user is None:
+                raise UserNotFoundException()
+
+            product = ProductRepository.getProduct(request['product_id'])
+
+            if product is None:
+                raise UnAuthorizedException()
+            ProductRepository.unhideProduct(product)
+            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getProducts(user.user_id)]
+            return createSuccessResponse(products)
+        except UserNotFoundException as exc:
+            return createErrorResponse(UserNotFoundException)
+        except Exception as exc:
+            print(exc)
+            return createErrorResponse(GException(exc))
+
+    @classmethod
+    def hideProduct(cls, auth, request):
+        try:
+            user = UserRepository.getUserById(auth['user_id'])
+
+            if user is None:
+                raise UserNotFoundException()
+
+            product = ProductRepository.getProduct(request['product_id'])
+
+            if product is None:
+                raise UnAuthorizedException()
+            ProductRepository.hideProduct(product)
+            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getProducts(user.user_id)]
+            return createSuccessResponse(products)
+        except UserNotFoundException as exc:
+            return createErrorResponse(UserNotFoundException)
+        except Exception as exc:
+            print(exc)
             return createErrorResponse(GException(exc))
