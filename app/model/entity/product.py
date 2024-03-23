@@ -5,8 +5,8 @@ from app.utils.utils import BASE_URL, generateUuid
 class Product(sql.Model):
     __tablename__ = "products"
     product_id = sql.Column(sql.Integer, primary_key=True, autoincrement=True)
-    user_id = sql.Column(sql.Integer, sql.ForeignKey("users.user_id"), nullable=False)
-    file_path = sql.Column(sql.String, nullable=False)
+    user_id = sql.Column(sql.BigInteger, sql.ForeignKey("users.user_id"), nullable=False)
+    file_path = sql.Column(sql.String(80), nullable=False)
     hidden = sql.Column(sql.Boolean, nullable=False, default=False)
     title = sql.Column(sql.String(64), nullable=False)
     description = sql.Column(sql.String(100), nullable=False)
