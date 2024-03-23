@@ -110,7 +110,7 @@ class UserRepository():
 
     @classmethod
     def getUserByRecoveryToken(cls, recoveryToken):
-        user = sql.session.query(User).filter(User.recovery_token == recoveryToken).first()
+        user = sql.session.query(User).filter(User.recovery_token == recoveryToken).filter(User.recovery_token != None).first()
         return user
 
     @classmethod

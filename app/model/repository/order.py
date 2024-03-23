@@ -2,6 +2,7 @@ from sqlalchemy import text
 
 from app.configuration.config import sql
 from app.model.entity.order import Order
+from app.model.entity.product import Product
 from app.utils.utils import generateUuid
 
 
@@ -9,7 +10,7 @@ class OrderRepository:
 
     @classmethod
     def getOrders(cls, user_id):
-        products = sql.session.query(Order).filter(Order.user_id == user_id).all()
+        products = sql.session.query(Order).join(Product, Product.product_id == Order.product_id).filter(Product.user_id == user_id).all()
         return products
 
     @classmethod

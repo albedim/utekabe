@@ -163,6 +163,8 @@ class UserService:
             if user is not None:
                 raise UserAlreadyExistsException()
 
+            print(request)
+
             imagePath = "files/images/users/default.png"
             if request['image'] != "":
                 imageName = generateUuid(size=16).replace("-", "")
@@ -245,7 +247,7 @@ class UserService:
 
             recoveryToken = UserRepository.createRecoveryToken(user)
             send_html_email(user.email, getEmails("recover_password")['title'],
-                        RECOVER_PASSWORD_EMAIL.replace("{anonymous_name}", user.anonymous_name)
+                        RECOVER_PASSWORD_EMAIL.replace("{library_name}", user.library_name)
                         .replace("{RECOVER_PASSWORD_URL}", f"{BASE_FE_URL}/create_password?token={recoveryToken}"))
             return createSuccessResponse("An email to recover your password was sent to you")
 
@@ -264,15 +266,15 @@ class UserService:
             if user is None:
                 raise UserNotFoundException()
 
-            if request['password'] != request['confirm_password']:
-                raise UnMatchedPasswordException()
+            if request['password'] != request['password_confirmation']:
+                raise UnAuthorizedException()
 
             UserRepository.createPassword(user, hashString(request['password']))
             return createSuccessResponse("created")
         except UserNotFoundException:
             return createErrorResponse(UserNotFoundException)
-        except UnMatchedPasswordException:
-            return createErrorResponse(UnMatchedPasswordException)
+        except UnAuthorizedException:
+            return createErrorResponse(UnAuthorizedException)
         except Exception as exc:
             return createErrorResponse(GException(exc))
 
