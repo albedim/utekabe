@@ -10,7 +10,9 @@ class OrderRepository:
 
     @classmethod
     def getOrders(cls, user_id):
-        products = sql.session.query(Order).join(Product, Product.product_id == Order.product_id).filter(Product.user_id == user_id).all()
+        products = sql.session.query(Order).join(
+            Product, Product.product_id == Order.product_id
+        ).filter(Product.user_id == user_id).all()
         return products
 
     @classmethod

@@ -23,7 +23,14 @@ class ProductService:
 
             fileName = "files/products/" + generateUuid(16).replace("-", "") + ".pdf"
             saveFile(request['file'], fileName)
-            product = ProductRepository.create(request['title'], fileName, request['description'], user.user_id, request['type_id'], request['cost'])
+            product = ProductRepository.create(
+                request['title'],
+                fileName,
+                request['description'],
+                user.user_id,
+                request['type_id'],
+                request['cost']
+            )
             return createSuccessResponse("created")
         except UserNotFoundException as exc:
             return createErrorResponse(UserNotFoundException)
@@ -36,7 +43,10 @@ class ProductService:
             user = UserRepository.getUserById(userId)
             if user is None:
                 raise UserNotFoundException()
-            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getProducts(userId)]
+            products = [
+                product.toJSON(type=TypeRepository.getType(product.type_id).toJSON())
+                for product in ProductRepository.getProducts(userId)
+            ]
             return createSuccessResponse(products)
         except UserNotFoundException as exc:
             return createErrorResponse(UserNotFoundException)
@@ -49,7 +59,10 @@ class ProductService:
             user = UserRepository.getUserById(userId)
             if user is None:
                 raise UserNotFoundException()
-            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getHiddenProducts(userId)]
+            products = [
+                product.toJSON(type=TypeRepository.getType(product.type_id).toJSON())
+                for product in ProductRepository.getHiddenProducts(userId)
+            ]
             return createSuccessResponse(products)
         except UserNotFoundException as exc:
             return createErrorResponse(UserNotFoundException)
@@ -85,7 +98,10 @@ class ProductService:
             if product is None:
                 raise UnAuthorizedException()
             ProductRepository.unhideProduct(product)
-            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getProducts(user.user_id)]
+            products = [
+                product.toJSON(type=TypeRepository.getType(product.type_id).toJSON())
+                for product in ProductRepository.getProducts(user.user_id)
+            ]
             return createSuccessResponse(products)
         except UserNotFoundException as exc:
             return createErrorResponse(UserNotFoundException)
@@ -106,7 +122,10 @@ class ProductService:
             if product is None:
                 raise UnAuthorizedException()
             ProductRepository.hideProduct(product)
-            products = [product.toJSON(type=TypeRepository.getType(product.type_id).toJSON()) for product in ProductRepository.getProducts(user.user_id)]
+            products = [
+                product.toJSON(type=TypeRepository.getType(product.type_id).toJSON())
+                for product in ProductRepository.getProducts(user.user_id)
+            ]
             return createSuccessResponse(products)
         except UserNotFoundException as exc:
             return createErrorResponse(UserNotFoundException)

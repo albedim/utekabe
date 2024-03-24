@@ -17,14 +17,12 @@ class EmailSentSchema():
     user_id: str
     subject: str
 
-
 class UserCompleteSchema():
     name: str
     surname: str
     profile_image: str
     password: str
     completion_link: str
-
 
 class UserSigninSchema():
     email: str

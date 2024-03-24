@@ -34,7 +34,6 @@ class UserService:
 
             if headers.get("Authorization") is not None:
                 token = headers.get("Authorization").split(" ")[1]
-                print(headers.get("Authorization"))
                 try:
                     auth = decode_token(token)['sub']
                     authUser = UserRepository.getUserById(auth['user_id'])
@@ -56,7 +55,6 @@ class UserService:
         except UserNotFoundException:
             return createErrorResponse(UserNotFoundException)
         except Exception as exc:
-            print(exc)
             return createErrorResponse(GException(exc))
 
     @classmethod
@@ -120,7 +118,10 @@ class UserService:
                 raise UserNotFoundException()
             if user.password == hashString(request['password']):
                 return createSuccessResponse({
-                    'token': create_access_token(identity={'user_id': user.user_id, 'expires_in': 14}, expires_delta=timedelta(days=14)),
+                    'token': create_access_token(
+                        identity={'user_id': user.user_id, 'expires_in': 14},
+                        expires_delta=timedelta(days=14)
+                    ),
                     'expires_in': 14,
                     'library_name': user.library_name
                 })
@@ -162,8 +163,6 @@ class UserService:
 
             if user is not None:
                 raise UserAlreadyExistsException()
-
-            print(request)
 
             imagePath = "files/images/users/default.png"
             if request['image'] != "":
@@ -294,10 +293,12 @@ class UserService:
         x = [e[1] for e in graph]
         y = [e[0] for e in graph]
         res = cls.fill(x, y, filter)
+
         graph = OrderRepository.getEarningsGraph(filter, user.user_id)
         x = [e[1] for e in graph]
         y = [int(e[0]) for e in graph]
         res1 = cls.fill(x, y, filter)
+
         return createSuccessResponse({
             "products": products,
             "sold_products": sold_products,
@@ -322,7 +323,8 @@ class UserService:
                     "23:00", "24:00"],
             'week': ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"],
             'month': [str(i) for i in range(1, 32)],
-            'year': ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+            'year': ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio",
+                     "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
         }
 
         values = periods.get(period.lower())
