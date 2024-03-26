@@ -1,7 +1,6 @@
 # Ignore YAML and SQL files
 *.yaml
 *.yml
-*.sql
 
 # Ignore config folder
 /config
