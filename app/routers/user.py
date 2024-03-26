@@ -52,9 +52,9 @@ def changePlan():
     return UserService.changePlan(get_jwt_identity(), request.json)
 
 
-@userRouter.get("/exists/<libraryName>")
-def exists(libraryName: str):
-    return UserService.exists(libraryName)
+@userRouter.get("/exists")
+def exists():
+    return UserService.exists(request.args)
 
 @userRouter.post("/sync")
 @jwt_required()

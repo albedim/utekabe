@@ -135,8 +135,12 @@ class UserService:
             return createErrorResponse(GException(exc))
 
     @classmethod
-    def exists(cls, libraryName):
-        user = UserRepository.getUserByLibraryName(libraryName)
+    def exists(cls, args):
+        user = None
+        if args.get("libraryName") is not None:
+            user = UserRepository.getUserByLibraryName(args.get("libraryName"))
+        if args.get("email") is not None:
+            user = UserRepository.getUserByEmail(args.get("email"))
         return createSuccessResponse(user is not None)
 
     @classmethod
@@ -160,6 +164,11 @@ class UserService:
     def signup(cls, request):
         try:
             user = UserRepository.getUserByEmail(request['email'])
+
+            if user is not None:
+                raise UserAlreadyExistsException()
+
+            user = UserRepository.getUserByLibraryName(request['library_name'])
 
             if user is not None:
                 raise UserAlreadyExistsException()
