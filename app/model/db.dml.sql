@@ -26,11 +26,11 @@ INSERT INTO reviews (user_id, content, created_on, stars)
 VALUES
 (21836382, 'Un servizio eccellente per creare la propria libreria digitale, ho pubblicato i miei ebook e le mie ricette senza problemi', NOW(), 5),
 (30926236, 'mi piace l''idea di poter condividere la mia libreria tramite un semplice link.', NOW(), 4),
-(41759375, 'Fantastico ho iniziato a pubblicare le mie guide di viaggio e sto già ricevendo i miei primi guadagni, scrivo per lavoro però quindi sono avvantaggiato xD', NOW(), 3),
+(41759375, 'Fantastico ho iniziato a pubblicare le mie guide di viaggio e sto già ricevendo i miei primi guadagni, scrivo per lavoro però quindi sono avvantaggiato xD', NOW(), 4),
 (18592725, 'Sono rimasta impressionata dalla facilità con cui ho potuto pubblicare i miei ebooks.', NOW(), 5),
 (63642367, 'Ho appena iniziato a utilizzare questo servizio per pubblicare le mie ricette e mi ha colpito la sua semplicità e versatilità', NOW(), 4),
-(71257544, 'è un''ottima piattaforma per pubblicare i propri articoli e guadagnare dalla vendita dei prodotti digitali. Consiglio vivamente questo servizio a tutti gli aspiranti scrittori e creatori di contenuti.', NOW(), 3),
+(71257544, 'è un''ottima piattaforma per pubblicare i propri articoli e guadagnare dalla vendita dei prodotti digitali. Consiglio vivamente questo servizio a tutti gli aspiranti scrittori e creatori di contenuti.', NOW(), 5),
 (81153633, 'Ho creato la mia libreria digitale e ho già ricevuto i primi acquisti dai miei amici e seguaci. È emozionante vedere il mio lavoro apprezzato ahahah', NOW(), 5),
-(93667438, 'Il processo di pubblicazione dei miei ebook è stato semplice e intuitivo.', NOW(), 4),
-(10513474, 'Mi sono appena iscritto a questo servizio e sto già gassaporando la semplicità di quest ultimo', NOW(), 3),
-(11234434, 'ottimo modo per monetizzare i miei contenuti digitali.', NOW(), 5);
+(93667438, 'Il processo di pubblicazione dei miei ebook è stato semplice e intuitivo.', NOW(), 5),
+(10513474, 'Mi sono appena iscritto a questo servizio e sto già gassaporando la semplicità di quest ultimo', NOW(), 4),
+(11234434, 'ottimo modo per monetizzare i miei contenuti digitali.', NOW(), 4);

@@ -90,7 +90,6 @@ def generateId():
 def hashString(password: str):
     return hashlib.md5(password.encode('UTF-8')).hexdigest()
 
-print(hashString("a"))
 
 def createSuccessResponse(param):
     return jsonify({
