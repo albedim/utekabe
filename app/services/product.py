@@ -9,7 +9,7 @@ from app.model.repository.user import UserRepository
 from app.utils.errors.GException import GException
 from app.utils.errors.UnAuthotizedException import UnAuthorizedException
 from app.utils.errors.UserNotFoundException import UserNotFoundException
-from app.utils.utils import createSuccessResponse, createErrorResponse, saveFile, generateUuid
+from app.utils.utils import createSuccessResponse, createErrorResponse, saveFile, generateUuid, generateFileName
 
 
 class ProductService:
@@ -21,7 +21,7 @@ class ProductService:
             if user is None:
                 raise UserNotFoundException()
 
-            fileName = "files/products/" + generateUuid(16).replace("-", "") + ".pdf"
+            fileName = "files/products/" + generateFileName("pdf")
             saveFile(request['file'], fileName)
             product = ProductRepository.create(
                 request['title'],

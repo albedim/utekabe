@@ -61,6 +61,14 @@ def send_html_email(email, subject, html_content):
     except Exception:
         raise EmailNotSentException()
 
+def generateFileName(extension: str):
+    return (
+            str(datetime.now())
+            .replace("-", "")
+            .replace(" ", "")
+            .replace(":", "")
+            .replace(".", "") + "." + extension
+    )
 
 def getVariables(datasource):
     with open('../config/config.yaml', 'r') as f:

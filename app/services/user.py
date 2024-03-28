@@ -21,7 +21,7 @@ from app.utils.errors.UserAlreadyExistsException import UserAlreadyExistsExcepti
 from app.utils.errors.UserNotFoundException import UserNotFoundException
 from app.utils.schema import WELCOME_EMAIL, RECOVER_PASSWORD_EMAIL
 from app.utils.utils import createSuccessResponse, createErrorResponse, hashString, saveFile, send_html_email, \
-    getEmails, getVariables, BASE_FE_URL, generateUuid
+    getEmails, getVariables, BASE_FE_URL, generateUuid, generateFileName
 
 
 class UserService:
@@ -91,8 +91,8 @@ class UserService:
 
             image = authUser.image_path
             if "http" not in request['image_path'] and request['image_path'] != "":
-                imageName = generateUuid(size=16).replace("-", "")
-                image = f"files/images/users/{imageName}.png"
+                imageName = generateFileName("png")
+                image = f"files/images/users/{imageName}"
                 saveFile(request['image_path'].split(",")[1], image)
 
             user = UserRepository.update(authUser, image, request)
@@ -175,8 +175,8 @@ class UserService:
 
             imagePath = "files/images/users/default.png"
             if request['image'] != "":
-                imageName = generateUuid(size=16).replace("-", "")
-                imagePath = f"files/images/users/{imageName}.png"
+                imageName = generateFileName("png")
+                imagePath = f"files/images/users/{imageName}"
                 saveFile(request['image'], imagePath)
 
             user = UserRepository.create(
@@ -192,9 +192,9 @@ class UserService:
                 request['paypal_email']
             )
 
-            """send_html_email(request['email'], getEmails("welcome")['title'],
-                            WELCOME_EMAIL.replace("{anonymous_name}", user.anonymous_name)
-                            .replace("{BASE_FE_URL}", BASE_FE_URL))"""
+            send_html_email(request['email'], getEmails("welcome")['title'].replace("{name}", user.name),
+                            WELCOME_EMAIL.replace("{name}", user.name)
+                            .replace("{BASE_FE_URL}", BASE_FE_URL))
             return createSuccessResponse({
                 'token': create_access_token(identity={'user_id': user.user_id},
                                              expires_delta=timedelta(days=14)),
@@ -255,8 +255,8 @@ class UserService:
 
             recoveryToken = UserRepository.createRecoveryToken(user)
             send_html_email(user.email, getEmails("recover_password")['title'],
-                        RECOVER_PASSWORD_EMAIL.replace("{library_name}", user.library_name)
-                        .replace("{RECOVER_PASSWORD_URL}", f"{BASE_FE_URL}/create_password?token={recoveryToken}"))
+                        RECOVER_PASSWORD_EMAIL.replace("{name}", user.name)
+                        .replace("{RECOVER_URL}", f"{BASE_FE_URL}/create_password?token={recoveryToken}"))
             return createSuccessResponse("An email to recover your password was sent to you")
 
         except UserNotFoundException:
