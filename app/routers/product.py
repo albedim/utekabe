@@ -13,6 +13,12 @@ productRouter: Blueprint = Blueprint('ProductController', __name__, url_prefix="
 def create():
     return ProductService.create(get_jwt_identity(), request.json)
 
+@productRouter.delete("/<productId>")
+@jwt_required()
+def delete(productId):
+    return ProductService.deleteProduct(get_jwt_identity(), productId)
+
+
 @productRouter.get("/user/<userId>/hidden")
 def getHiddenProducts(userId: str):
     return ProductService.getHiddenProducts(userId)

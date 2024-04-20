@@ -54,6 +54,28 @@ class ProductService:
             return createErrorResponse(GException(exc))
 
     @classmethod
+    def deleteProduct(cls, auth, productId):
+        try:
+            user = UserRepository.getUserById(auth['user_id'])
+
+            if user is None:
+                raise UserNotFoundException()
+
+            product = ProductRepository.getProduct(productId)
+
+            if product is None or product.user_id != user.user_id:
+                raise UnAuthorizedException()
+
+            ProductRepository.removeProduct(product.product_id)
+            return createSuccessResponse("removed")
+        except UserNotFoundException as exc:
+            return createErrorResponse(UserNotFoundException)
+        except UnAuthorizedException as exc:
+            return createErrorResponse(UnAuthorizedException)
+        except Exception as exc:
+            return createErrorResponse(GException(exc))
+
+    @classmethod
     def getHiddenProducts(cls, userId):
         try:
             user = UserRepository.getUserById(userId)

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a0e7b3e5-525b-4d0e-9b54-4074995289c9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/bliddobe.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libdobe.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/configuration/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/configuration/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/db.ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/db.ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/db.dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/db.dml.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/entity/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/entity/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/entity/plan.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/entity/plan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/entity/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/entity/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/entity/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/entity/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/entity/type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/entity/type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/entity/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/repository/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/repository/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/repository/plan.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/repository/plan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/repository/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/repository/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/repository/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/repository/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/repository/type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/repository/type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/repository/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/repository/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/plan.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/plan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schema/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schema/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/plans.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/plans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/EmailNotSentException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/EmailNotSentException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/FileNotFoundEcxeption.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/FileNotFoundEcxeption.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/GException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/GException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/InvalidSchemaException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/InvalidSchemaException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/MethodNotAllowedException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/MethodNotAllowedException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/NotFoundException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/NotFoundException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/RefreshTokenNeededExceptiom.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/RefreshTokenNeededExceptiom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/TokenExpiredException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/TokenExpiredException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/UnAuthotizedException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/UnAuthotizedException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/UserAlreadyExistsException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/UserAlreadyExistsException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/errors/UserNotFoundException.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/errors/UserNotFoundException.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2eltKQuh07IxNM45E3DtESf1S26" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/albedim/Desktop/Desk/DevRoom/WebApps-Server/bliddobe"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bliddobe" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0e7b3e5-525b-4d0e-9b54-4074995289c9" name="Changes" comment="" />
+      <created>1712490929107</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712490929107</updated>
+    </task>
+    <servers />
+  </component>
+</project>
