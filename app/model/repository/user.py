@@ -126,6 +126,7 @@ class UserRepository():
         authUser.name = request.get("name")
         authUser.surname = request.get("surname")
         authUser.bio = request.get("bio")
+        authUser.color = request.get("color")
         authUser.image_path = image
         authUser.country_code = request.get("country_code")
         authUser.password = hashString(request.get("password")) if request.get("password") != "" else authUser.password

@@ -11,7 +11,7 @@ class Product(sql.Model):
     title = sql.Column(sql.String(64), nullable=False)
     description = sql.Column(sql.String(100), nullable=False)
     type_id = sql.Column(sql.Integer, sql.ForeignKey("types.type_id"), nullable=False)
-    cost = sql.Column(sql.Integer, nullable=False)
+    cost = sql.Column(sql.Float, nullable=False)
 
     def __init__(self, title, filePath, description, userId, type_id, cost):
         self.title = title

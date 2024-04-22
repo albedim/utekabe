@@ -10,6 +10,7 @@ class User(sql.Model):
     user_id = sql.Column(sql.BigInteger, primary_key=True)
     email = sql.Column(sql.String(64), nullable=False)
     name = sql.Column(sql.String(24), nullable=False)
+    color = sql.Column(sql.String(14), nullable=False)
     surname = sql.Column(sql.String(24), nullable=False)
     bio = sql.Column(sql.String(200))
     recovery_token = sql.Column(sql.String(16))
@@ -26,6 +27,7 @@ class User(sql.Model):
         self.user_id = generateId()
         self.email = email
         self.name = name
+        self.color = "orange"
         self.surname = surname
         self.password = password
         self.bio = bio
@@ -44,11 +46,12 @@ class User(sql.Model):
             'name': self.name,
             'surname': self.surname,
             'bio': self.bio,
+            'color': self.color,
             'city': self.city,
             'country_code': self.country_code,
             'plan_id': self.plan_id,
             'paypal_email': self.paypal_email,
-            'url': f"{BASE_FE_URL}/me/{self.library_name}",
+            'url': f"{BASE_FE_URL}/{self.library_name}",
             'image_path': f"{BASE_URL}/users/{self.user_id}/image",
             'library_name': self.library_name,
             'created_on': self.created_on.strftime("%Y-%m-%d")

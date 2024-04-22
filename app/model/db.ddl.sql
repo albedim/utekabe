@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS users(
 	user_id BIGINT PRIMARY KEY,
     email VARCHAR(64) NOT NULL,
     name VARCHAR(24) NOT NULL,
+    color VARCHAR(14) NOT NULL,
     surname VARCHAR(24) NOT NULL,
     bio VARCHAR(200),
     recovery_token VARCHAR(16),

@@ -26,6 +26,8 @@ from app.utils.utils import createSuccessResponse, createErrorResponse, hashStri
 
 class UserService:
 
+    PROTECTED_USERNAMES = ['signin', 'create']
+
     @classmethod
     def getUserByLibraryName(cls, headers, libraryName):
         try:
@@ -136,12 +138,15 @@ class UserService:
 
     @classmethod
     def exists(cls, args):
-        user = None
+        exists = False
+
         if args.get("libraryName") is not None:
             user = UserRepository.getUserByLibraryName(args.get("libraryName"))
+            exists = user is not None or args.get("libraryName") in cls.PROTECTED_USERNAMES
         if args.get("email") is not None:
             user = UserRepository.getUserByEmail(args.get("email"))
-        return createSuccessResponse(user is not None)
+            exists = user is not None
+        return createSuccessResponse(exists)
 
     @classmethod
     def sync(cls, tokenSub):
@@ -171,6 +176,9 @@ class UserService:
             user = UserRepository.getUserByLibraryName(request['library_name'])
 
             if user is not None:
+                raise UserAlreadyExistsException()
+
+            if request['library_name'] in cls.PROTECTED_USERNAMES:
                 raise UserAlreadyExistsException()
 
             imagePath = "files/images/users/default.png"
