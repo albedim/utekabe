@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS products(
 	hidden BOOLEAN NOT NULL,
     title VARCHAR(64) NOT NULL,
     description VARCHAR(100) NOT NULL,
+    time_to_read INT NOT NULL,
     type_id INT NOT NULL,
   	cost INT NOT NULL,
   	FOREIGN KEY (user_id) REFERENCES users(user_id),

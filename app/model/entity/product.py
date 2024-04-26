@@ -7,15 +7,17 @@ class Product(sql.Model):
     product_id = sql.Column(sql.Integer, primary_key=True, autoincrement=True)
     user_id = sql.Column(sql.BigInteger, sql.ForeignKey("users.user_id"), nullable=False)
     file_path = sql.Column(sql.String(80), nullable=False)
+    time_to_read = sql.Column(sql.Integer, nullable=False)
     hidden = sql.Column(sql.Boolean, nullable=False, default=False)
     title = sql.Column(sql.String(64), nullable=False)
     description = sql.Column(sql.String(100), nullable=False)
     type_id = sql.Column(sql.Integer, sql.ForeignKey("types.type_id"), nullable=False)
     cost = sql.Column(sql.Float, nullable=False)
 
-    def __init__(self, title, filePath, description, userId, type_id, cost):
+    def __init__(self, title, filePath, description, timeToRead, userId, type_id, cost):
         self.title = title
         self.hidden = False
+        self.time_to_read = timeToRead
         self.file_path = filePath
         self.description = description
         self.user_id = userId
@@ -26,6 +28,7 @@ class Product(sql.Model):
         obj = {
             'product_id': self.product_id,
             'title': self.title,
+            'time_to_read': self.time_to_read,
             'file_path': f"{BASE_URL}/products/{self.product_id}/file",
             'user_id': self.user_id,
             'hidden': self.hidden,

@@ -1,7 +1,7 @@
 import os
 
+from fitz import fitz
 from flask import send_file, request
-
 from app.model.repository.order import OrderRepository
 from app.model.repository.product import ProductRepository
 from app.model.repository.type import TypeRepository
@@ -23,10 +23,12 @@ class ProductService:
 
             fileName = "files/products/" + generateFileName("pdf")
             saveFile(request['file'], fileName)
+            timeToRead = cls.getTimeToRead(fileName)
             product = ProductRepository.create(
                 request['title'],
                 fileName,
                 request['description'],
+                timeToRead,
                 user.user_id,
                 request['type_id'],
                 request['cost']
@@ -35,7 +37,16 @@ class ProductService:
         except UserNotFoundException as exc:
             return createErrorResponse(UserNotFoundException)
         except Exception as exc:
+            print(exc)
             return createErrorResponse(GException(exc))
+
+    @classmethod
+    def getTimeToRead(cls, fileName):
+        doc = fitz.open(os.path.abspath(fileName))  # open a document
+        length = 0
+        for page in doc:
+            length += len(page.get_text())
+        return length / 200 * 60
 
     @classmethod
     def getProducts(cls, userId):

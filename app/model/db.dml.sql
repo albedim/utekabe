@@ -39,7 +39,7 @@ VALUES
 
 
 INSERT INTO plans VALUES (NULL, 'FREE', false, 0, false, '• Create up to 4 products,• Personalize your account,• Basic sales analytics');
-INSERT INTO plans VALUES (NULL, 'Premium', true, 5.99, true, "• FREE plan's advantages","• Create how much products as you want","• Advanced sales analytics");
+INSERT INTO plans VALUES (NULL, 'Premium', true, 5.99, true, "• FREE plan's advantages,• Create how much products as you want• Advanced sales analytics");
 
 INSERT INTO types VALUES (NULL, 'Artcle');
 INSERT INTO types VALUES (NULL, 'E-book');

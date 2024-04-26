@@ -9,8 +9,8 @@ class ProductRepository:
         return products
 
     @classmethod
-    def create(cls, title, filePath, description, userId, typeId, cost):
-        product = Product(title, filePath, description, userId, typeId, cost)
+    def create(cls, title, filePath, description, timeToRead, userId, typeId, cost):
+        product = Product(title, filePath, description, timeToRead, userId, typeId, cost)
         sql.session.add(product)
         sql.session.commit()
         return product
