@@ -65,15 +65,15 @@ WELCOME_EMAIL = '''
         <div>
             <div class="imagewr">
                 <div style="align-items: center; display: flex;">
-                    <img class="image" height="54px" width="54px" src="https://bliddofe.pages.dev/static/media/logo.800997bd8f7675755b0b.png" alt="">
+                    <img class="image" height="54px" width="54px" src="https://utekafe.pages.dev/static/media/logo.800997bd8f7675755b0b.png" alt="">
                     <div style="margin-left: 14px;">
-                        <p style="font-weight: 400;"><span style="font-weight: 500;">Bliddo</span><br>Auto e-mail service.</p>
+                        <p style="font-weight: 400;"><span style="font-weight: 500;">uteka</span><br>Auto e-mail service.</p>
                     </div>
                 </div>
             </div>
             <div class="text">
-                <h1>Bliddo</h1>
-                <h2>Hey {name}! Welcome to Bliddo and thank you for joining us.<br/>We are going to help you create your digital library and sell your products to everyone, we can't wait to make you get your first sales and earn money with your passion! Get started now</h2>
+                <h1>Uteka</h1>
+                <h2>Hey {name}! Welcome to Uteka and thank you for joining us.<br/>We are going to help you create your digital library and sell your products to everyone, we can't wait to make you get your first sales and earn money with your passion! Get started now</h2>
             </div>
             <div class="buttonwr">
                 <a href="{BASE_FE_URL}"><button style="cursor: pointer;">Get Started</button></a>
@@ -154,14 +154,14 @@ RECOVER_PASSWORD_EMAIL = '''
         <div>
             <div class="imagewr">
                 <div style="align-items: center; display: flex;">
-                    <img class="image" height="54px" width="54px" src="https://bliddofe.pages.dev/static/media/logo.800997bd8f7675755b0b.png" alt="">
+                    <img class="image" height="54px" width="54px" src="https://utekafe.pages.dev/static/media/logo.800997bd8f7675755b0b.png" alt="">
                     <div style="margin-left: 14px;">
-                        <p style="font-weight: 400;"><span style="font-weight: 500;">Bliddo</span><br>Auto e-mail service.</p>
+                        <p style="font-weight: 400;"><span style="font-weight: 500;">Uteka</span><br>Auto e-mail service.</p>
                     </div>
                 </div>
             </div>
             <div class="text">
-                <h1>Bliddo</h1>
+                <h1>Uteka</h1>
                 <h2>Hey {name}, we received a request to change your password.<br/>if you forgot your password please click this button and follow the steps in our website to recover your account, if the request wasn't made by you please ignore it.</h2>
             </div>
             <div class="buttonwr">
